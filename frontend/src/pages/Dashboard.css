@@ -1,0 +1,246 @@
+/* ── Dashboard Page ──────────────────────────────────────────── */
+.dashboard-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* ── Header ──────────────────────────────────────────────────── */
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.dashboard-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin: 0 0 0.375rem;
+}
+
+.dashboard-subtitle {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ── Stats Grid ──────────────────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+}
+
+/* ── Stat Card ───────────────────────────────────────────────── */
+.stat-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 250ms ease, box-shadow 250ms ease;
+  cursor: default;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* Danger card: subtle red border when low stock > 0 */
+.stat-card--danger {
+  border-color: #fecaca;
+}
+
+/* ── Card Icon (top-right) ───────────────────────────────────── */
+.stat-card-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.25rem;
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.card-icon--primary { background-color: #ede9fe; color: #4f46e5; }
+.card-icon--blue    { background-color: #dbeafe; color: #2563eb; }
+.card-icon--success { background-color: #dcfce7; color: #16a34a; }
+.card-icon--warning { background-color: #fef9c3; color: #ca8a04; }
+.card-icon--danger  { background-color: #fee2e2; color: #dc2626; }
+
+/* ── Card Value & Label ──────────────────────────────────────── */
+.card-value {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  margin: 0 0 0.5rem;
+}
+
+.card-value--danger {
+  color: #dc2626;
+}
+
+.card-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ── Skeleton Cards ──────────────────────────────────────────── */
+.stat-card--skeleton {
+  pointer-events: none;
+}
+
+.skeleton-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  align-self: flex-end;
+  margin-bottom: 1.25rem;
+}
+
+.skeleton-value {
+  height: 1.875rem;
+  width: 55%;
+  border-radius: 6px;
+  margin-bottom: 0.625rem;
+}
+
+.skeleton-label {
+  height: 0.8125rem;
+  width: 70%;
+  border-radius: 4px;
+}
+
+@keyframes shimmer-pulse {
+  0%   { background-color: #f1f5f9; }
+  50%  { background-color: #e2e8f0; }
+  100% { background-color: #f1f5f9; }
+}
+
+.shimmer {
+  animation: shimmer-pulse 1.6s ease-in-out infinite;
+}
+
+/* ── Error Card ──────────────────────────────────────────────── */
+.error-card {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  background: #ffffff;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.error-icon {
+  color: #dc2626;
+  flex-shrink: 0;
+}
+
+.error-message {
+  flex: 1;
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.retry-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  background: transparent;
+  border: 1px solid #d1d5db;
+  border-radius: 9999px;
+  color: #374151;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 250ms ease, border-color 250ms ease;
+}
+
+.retry-btn:hover {
+  background-color: #f8fafc;
+  border-color: #9ca3af;
+}
+
+.retry-btn:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+/* ── Responsive: 3 columns (≤ 1100px) ───────────────────────── */
+@media (max-width: 1100px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ── Responsive: Tablet 2 columns (≤ 700px) ─────────────────── */
+@media (max-width: 700px) {
+  .dashboard-page {
+    padding: 0 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* ── Responsive: Mobile 1 column (≤ 480px) ──────────────────── */
+@media (max-width: 480px) {
+  .dashboard-page {
+    padding: 0 1rem;
+  }
+
+  .dashboard-title {
+    font-size: 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+
+  .card-value {
+    font-size: 1.625rem;
+  }
+}
+
+/* ── Reduced Motion ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .stat-card {
+    transition: none;
+  }
+
+  .stat-card:hover {
+    transform: none;
+  }
+
+  .shimmer {
+    animation: none;
+    background-color: #f1f5f9;
+  }
+
+  .retry-btn {
+    transition: none;
+  }
+}

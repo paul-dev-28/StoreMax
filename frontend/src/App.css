@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* ── Global Reset ────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+}
+
+/* ── Protected Page Shell ────────────────────────────────────── */
+/* Wraps Navbar + page content. Sets the slate background and    */
+/* ensures every protected page fills the full viewport height.  */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+/* ── Content Area ────────────────────────────────────────────── */
+/* Sits below the sticky Navbar. flex: 1 fills remaining height. */
+/* Vertical padding only — pages own their horizontal spacing.   */
+.main-content {
+  flex: 1;
+  padding-top: 1.75rem;
+  padding-bottom: 3rem;
+}
+
+/* ── Responsive: Tablet (≤ 900px) ───────────────────────────── */
+@media (max-width: 900px) {
+  .main-content {
+    padding-top: 1.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+/* ── Responsive: Mobile (≤ 480px) ───────────────────────────── */
+@media (max-width: 480px) {
+  .main-content {
+    padding-top: 1.25rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* ── Reduced Motion ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* ── Design Tokens ───────────────────────────────────────────── */
+:root {
+  --nav-height:          72px;
+  --nav-bg:              #ffffff;
+  --nav-border:          #e5e7eb;
+  --nav-shadow:          0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --nav-max-width:       1300px;
+  --nav-px:              2.5rem;
+
+  --brand-color:         #0f172a;
+  --brand-icon-color:    #4f46e5;
+
+  --link-color:          #4b5563;
+  --link-active-bg:      #4f46e5;
+  --link-active-color:   #ffffff;
+  --link-hover-bg:       #ede9fe;
+  --link-hover-color:    #4f46e5;
+  --link-hover-shadow:   0 2px 8px rgba(79, 70, 229, 0.14);
+
+  --logout-color:        #374151;
+  --logout-border:       #d1d5db;
+  --logout-hover-bg:     #fef2f2;
+  --logout-hover-color:  #dc2626;
+  --logout-hover-border: #fecaca;
+
+  --font:                'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --transition:          all 250ms ease;
+  --pill:                9999px;
+}
+
+/* ── Navbar Shell ────────────────────────────────────────────── */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  box-shadow: var(--nav-shadow);
+  font-family: var(--font);
+  box-sizing: border-box;
+}
+
+/* ── Inner Container ─────────────────────────────────────────── */
+/*  Three columns: brand(flex:1) | links(auto) | actions(flex:1)
+    This keeps links truly centered regardless of brand/button width */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  max-width: var(--nav-max-width);
+  margin: 0 auto;
+  padding: 0 var(--nav-px);
+  box-sizing: border-box;
+}
+
+/* ── Brand ───────────────────────────────────────────────────── */
+.navbar-brand {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--brand-color);
+  min-width: 0;
+}
+
+.brand-icon {
+  flex-shrink: 0;
+  color: var(--brand-icon-color);
+}
+
+.brand-name {
+  font-size: 0.9375rem;    /* 15px */
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--brand-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Navigation Links ────────────────────────────────────────── */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--pill);
+  font-size: 0.875rem;      /* 14px */
+  font-weight: 500;
+  color: var(--link-color);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--transition);
+  outline: none;
+  border: 1px solid transparent;
+}
+
+/* Inactive hover */
+.nav-link:hover:not(.nav-link--active) {
+  background-color: var(--link-hover-bg);
+  color: var(--link-hover-color);
+  box-shadow: var(--link-hover-shadow);
+  transform: scale(1.02);
+}
+
+/* Active pill */
+.nav-link--active {
+  background-color: var(--link-active-bg);
+  color: var(--link-active-color);
+  font-weight: 600;
+}
+
+.nav-link--active:hover {
+  background-color: var(--link-active-bg);
+  color: var(--link-active-color);
+  transform: scale(1.02);
+  box-shadow: var(--link-hover-shadow);
+}
+
+/* Keyboard focus — meets WCAG AA */
+.nav-link:focus-visible {
+  outline: 2px solid var(--link-active-bg);
+  outline-offset: 2px;
+}
+
+/* ── Logout Button ───────────────────────────────────────────── */
+.navbar-actions {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.logout-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--pill);
+  border: 1px solid var(--logout-border);
+  background-color: transparent;
+  color: var(--logout-color);
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition);
+  outline: none;
+}
+
+.logout-btn:hover {
+  background-color: var(--logout-hover-bg);
+  color: var(--logout-hover-color);
+  border-color: var(--logout-hover-border);
+  transform: scale(1.02);
+}
+
+.logout-btn:focus-visible {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+}
+
+/* ── Responsive: Tablet (≤ 900px) ───────────────────────────── */
+@media (max-width: 900px) {
+  .navbar {
+    height: auto;           /* allow wrapping to two rows */
+  }
+
+  .navbar-container {
+    flex-wrap: wrap;
+    padding: 0.875rem 1.5rem;
+    gap: 0.6rem;
+  }
+
+  /* Push links to their own full-width row */
+  .navbar-links {
+    order: 3;
+    flex: 0 0 100%;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .navbar-brand {
+    flex: 1;
+  }
+
+  .navbar-actions {
+    flex: unset;
+  }
+}
+
+/* ── Responsive: Mobile (≤ 480px) ───────────────────────────── */
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0.75rem 1rem;
+  }
+
+  .brand-name {
+    font-size: 0.8125rem;   /* 13px */
+  }
+
+  .nav-link {
+    font-size: 0.8125rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .logout-btn {
+    font-size: 0.8125rem;
+    padding: 0.4rem 0.85rem;
+  }
+}
+
+/* ── Reduced Motion ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .nav-link,
+  .logout-btn {
+    transition: none;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,447 @@
+/* ── Page ────────────────────────────────────────────────────── */
+.sale-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* ── Header ──────────────────────────────────────────────────── */
+.sale-header {
+  margin-bottom: 1.75rem;
+}
+
+.sale-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin: 0 0 0.375rem;
+}
+
+.sale-subtitle {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ── Two-column Grid ─────────────────────────────────────────── */
+.sale-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.sale-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ── Sticky Right Column ─────────────────────────────────────── */
+.sale-right {
+  position: sticky;
+  top: 1.75rem;
+}
+
+/* ── Cards ───────────────────────────────────────────────────── */
+.sale-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+/* ── Card Section Title ──────────────────────────────────────── */
+.card-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.card-section-title svg {
+  color: #4f46e5;
+  flex-shrink: 0;
+}
+
+/* ── Styled Select ───────────────────────────────────────────── */
+.form-select {
+  width: 100%;
+  padding: 0.625rem 2.5rem 0.625rem 0.875rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: #0f172a;
+  background-color: #ffffff;
+  /* Custom chevron arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.875rem center;
+  background-size: 16px;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.form-select:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-select:invalid,
+.form-select option[value=""] {
+  color: #94a3b8;
+}
+
+/* ── Product Rows List ───────────────────────────────────────── */
+.product-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Individual Product Row ──────────────────────────────────── */
+.product-row {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem;
+  background: #f8fafc;
+  transition: border-color 200ms ease;
+}
+
+.product-row:hover {
+  border-color: #c7d2fe;
+}
+
+.product-row-main {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.row-select {
+  flex: 1;
+  min-width: 0;  /* allow shrinking below content size */
+}
+
+/* ── Quantity Input ──────────────────────────────────────────── */
+.qty-input {
+  width: 80px;
+  flex-shrink: 0;
+  padding: 0.625rem 0.625rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: #0f172a;
+  background: #ffffff;
+  text-align: center;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.qty-input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* ── Remove Row Button ───────────────────────────────────────── */
+.btn-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid #fca5a5;
+  border-radius: 9999px;
+  color: #dc2626;
+  cursor: pointer;
+  transition: background-color 200ms ease, transform 200ms ease;
+  outline: none;
+}
+
+.btn-remove:hover {
+  background-color: #fef2f2;
+  border-color: #ef4444;
+  transform: scale(1.05);
+}
+
+.btn-remove:focus-visible {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+}
+
+/* ── Row Meta (price + stock + subtotal) ─────────────────────── */
+.product-row-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.625rem;
+  padding-top: 0.625rem;
+  border-top: 1px solid #e2e8f0;
+  flex-wrap: wrap;
+}
+
+.row-price {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #16a34a;
+}
+
+.row-stock {
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.row-subtotal {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #4f46e5;
+  margin-left: auto;
+}
+
+/* ── Add Another Product Button ──────────────────────────────── */
+.btn-add-product {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  width: 100%;
+  justify-content: center;
+  background: transparent;
+  color: #4f46e5;
+  border: 1.5px dashed #c7d2fe;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 250ms ease, border-color 250ms ease, color 250ms ease;
+  outline: none;
+}
+
+.btn-add-product:hover {
+  background-color: #ede9fe;
+  border-color: #4f46e5;
+  border-style: solid;
+}
+
+.btn-add-product:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+/* ── Order Summary Card ──────────────────────────────────────── */
+.sale-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Summary Line Items ──────────────────────────────────────── */
+.summary-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.summary-line {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.summary-line-name {
+  color: #374151;
+  font-weight: 400;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.summary-line-qty {
+  color: #64748b;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+.summary-line-price {
+  color: #0f172a;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ── Empty Line Items placeholder ───────────────────────────── */
+.summary-empty {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* ── Summary Divider ─────────────────────────────────────────── */
+.summary-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 1rem 0;
+}
+
+/* ── Summary Total ───────────────────────────────────────────── */
+.summary-total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.summary-total-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.summary-total-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+}
+
+/* ── Submit Button ───────────────────────────────────────────── */
+.btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background-color: #4f46e5;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+  outline: none;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background-color: #4338ca;
+  transform: scale(1.01);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+}
+
+.btn-submit:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+.btn-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ── Alert Banners ───────────────────────────────────────────── */
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.875rem 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.alert--error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+.alert--success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+}
+
+.alert svg {
+  flex-shrink: 0;
+}
+
+/* ── Skeleton Loading ────────────────────────────────────────── */
+@keyframes shimmer-pulse {
+  0%   { background-color: #f1f5f9; }
+  50%  { background-color: #e2e8f0; }
+  100% { background-color: #f1f5f9; }
+}
+
+.shimmer {
+  border-radius: 6px;
+  animation: shimmer-pulse 1.6s ease-in-out infinite;
+}
+
+.sk-label  { height: 14px; width: 80px; margin-bottom: 1rem; }
+.sk-input  { height: 44px; width: 100%; border-radius: 10px; margin-bottom: 0.5rem; }
+.sk-row    { height: 80px; width: 100%; border-radius: 12px; }
+.sk-total  { height: 40px; width: 100%; border-radius: 6px; margin: 1rem 0; }
+.sk-btn    { height: 46px; width: 100%; border-radius: 9999px; margin-top: 0.5rem; }
+
+/* ── Responsive: Tablet (≤ 960px) ───────────────────────────── */
+@media (max-width: 960px) {
+  .sale-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sale-right {
+    position: static;   /* summary no longer sticky on tablet/mobile */
+  }
+}
+
+/* ── Responsive: Tablet padding (≤ 900px) ───────────────────── */
+@media (max-width: 900px) {
+  .sale-page { padding: 0 1.5rem; }
+}
+
+/* ── Responsive: Mobile (≤ 640px) ───────────────────────────── */
+@media (max-width: 640px) {
+  .sale-page        { padding: 0 1rem; }
+  .sale-title       { font-size: 1.5rem; }
+  .sale-card        { padding: 1.25rem; }
+
+  .product-row-main { flex-wrap: wrap; }
+  .row-select       { flex: 1 1 100%; }
+  .qty-input        { width: 80px; }
+
+  .summary-total-amount { font-size: 1.25rem; }
+}
+
+/* ── Reduced Motion ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .btn-submit, .btn-add-product, .btn-remove,
+  .form-select, .qty-input { transition: none; transform: none !important; }
+  .shimmer { animation: none; background-color: #f1f5f9; }
+}
