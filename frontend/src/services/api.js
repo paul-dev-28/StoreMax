@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Single Axios instance used by every page — base URL points to our Express backend
 const api = axios.create({
-  baseURL: "http://localhost:5001/api",
+  baseURL: "https://storemax-lnam.onrender.com/api",
 });
 
 // Request interceptor: runs before every API call
