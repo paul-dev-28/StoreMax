@@ -320,6 +320,8 @@
   gap: 0.5rem;
 }
 
+/* Shared base styles for all three action buttons */
+.btn-view,
 .btn-edit,
 .btn-delete {
   display: inline-flex;
@@ -336,6 +338,20 @@
   outline: none;
 }
 
+/* View — indigo (primary brand) */
+.btn-view {
+  background: transparent;
+  color: #4f46e5;
+  border: 1px solid #c7d2fe;
+}
+
+.btn-view:hover {
+  background-color: #ede9fe;
+  border-color: #4f46e5;
+  transform: scale(1.03);
+}
+
+/* Edit — amber */
 .btn-edit {
   background: transparent;
   color: #b45309;
@@ -348,6 +364,7 @@
   transform: scale(1.03);
 }
 
+/* Delete — red */
 .btn-delete {
   background: transparent;
   color: #dc2626;
@@ -360,6 +377,8 @@
   transform: scale(1.03);
 }
 
+/* currentColor gives each button its own brand-correct outline colour */
+.btn-view:focus-visible,
 .btn-edit:focus-visible,
 .btn-delete:focus-visible {
   outline: 2px solid currentColor;
@@ -421,6 +440,7 @@
 .skeleton-cell--medium  { width: 110px; }
 .skeleton-cell--long    { width: 220px; }
 .skeleton-cell--actions { width: 120px; }
+.skeleton-cell--short   { width: 70px; }
 
 /* ── Responsive: Tablet ──────────────────────────────────────── */
 @media (max-width: 900px) {
@@ -440,7 +460,7 @@
 /* ── Reduced Motion ──────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .btn-primary, .btn-cancel,
-  .btn-edit, .btn-delete,
+  .btn-view, .btn-edit, .btn-delete,
   .form-input, .search-input { transition: none; transform: none !important; }
   .shimmer { animation: none; background-color: #f1f5f9; }
 }

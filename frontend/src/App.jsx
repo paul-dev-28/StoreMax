@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Products from "./pages/Products";
 import Customers from "./pages/Customers";
 import CreateSale from "./pages/CreateSale";
+import CustomerDetail from "./pages/CustomerDetail";
 
 // Shared layout for all protected pages.
 // Eliminates the repeated <Navbar /> + wrapper pattern across every route.
@@ -40,10 +41,11 @@ function App() {
         {/* ── Protected Routes ──────────────────────────────────── */}
         {/* AppLayout supplies the Navbar + #F8FAFC shell.           */}
         {/* All route paths, components, and auth logic are unchanged */}
-        <Route path="/dashboard"   element={<AppLayout><Dashboard /></AppLayout>} />
-        <Route path="/products"    element={<AppLayout><Products /></AppLayout>} />
-        <Route path="/customers"   element={<AppLayout><Customers /></AppLayout>} />
-        <Route path="/create-sale" element={<AppLayout><CreateSale /></AppLayout>} />
+        <Route path="/dashboard"       element={<AppLayout><Dashboard /></AppLayout>} />
+        <Route path="/products"        element={<AppLayout><Products /></AppLayout>} />
+        <Route path="/customers"       element={<AppLayout><Customers /></AppLayout>} />
+        <Route path="/customers/:id"   element={<AppLayout><CustomerDetail /></AppLayout>} />
+        <Route path="/create-sale"     element={<AppLayout><CreateSale /></AppLayout>} />
 
         {/* Default: redirect root to dashboard */}
         <Route path="/" element={<Navigate to="/dashboard" replace />} />

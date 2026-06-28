@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   FiUser,
   FiSearch,
   FiEdit2,
   FiTrash2,
+  FiEye,
 } from "react-icons/fi";
 import api from "../services/api";
 import "./Customers.css";
@@ -42,6 +44,8 @@ function EmptyState({ hasSearch }) {
 
 // ── Customers ──────────────────────────────────────────────────
 function Customers() {
+  const navigate = useNavigate();
+
   const [customers, setCustomers] = useState([]);
   const [form, setForm]           = useState(emptyForm);
   const [editingId, setEditingId] = useState(null);   // null = add, id = edit
@@ -152,7 +156,7 @@ function Customers() {
           {/* Row 1: Name + Phone */}
           <div className="form-row">
             <div className="form-group">
-              <label className="form-label" htmlFor="cust-name">Name</label>
+              <label className="form-label" htmlFor="cust-name">Customer Name</label>
               <input
                 id="cust-name"
                 className="form-input"
@@ -164,12 +168,12 @@ function Customers() {
               />
             </div>
             <div className="form-group">
-              <label className="form-label" htmlFor="cust-phone">Phone</label>
+              <label className="form-label" htmlFor="cust-phone">Phone Number</label>
               <input
                 id="cust-phone"
                 className="form-input"
                 name="phone"
-                placeholder="e.g. 9876543210"
+                placeholder="e.g. +91-9876543210"
                 value={form.phone}
                 onChange={handleChange}
                 required
@@ -274,6 +278,14 @@ function Customers() {
                     {/* Actions */}
                     <td>
                       <div className="action-cell">
+                        <button
+                          className="btn-view"
+                          onClick={() => navigate(`/customers/${c._id}`)}
+                          aria-label={`View ${c.name}`}
+                        >
+                          <FiEye size={12} aria-hidden="true" />
+                          View
+                        </button>
                         <button
                           className="btn-edit"
                           onClick={() => handleEdit(c)}

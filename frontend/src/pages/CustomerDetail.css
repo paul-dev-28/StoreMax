@@ -1,0 +1,344 @@
+/* ── CustomerDetail.css ──────────────────────────────────────────
+   Page-specific styles only.
+   Global utilities reused from existing CSS bundles:
+     Dashboard.css  → .stat-card, .card-icon--*, .card-value, .card-label,
+                       .skeleton-icon/value/label, .shimmer, .shimmer-pulse,
+                       .error-card, .error-icon, .error-message, .retry-btn
+     Customers.css  → .table-container, .skeleton-row, .skeleton-cell,
+                       .skeleton-cell--*, .empty-cell, .empty-state,
+                       .empty-icon, .empty-title, .empty-desc
+─────────────────────────────────────────────────────────────────── */
+
+/* ── Page ────────────────────────────────────────────────────── */
+.cd-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* ── Back Button ─────────────────────────────────────────────── */
+.cd-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  color: #64748b;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+  outline: none;
+}
+
+.cd-back-btn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+.cd-back-btn:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+/* ── Page Header ─────────────────────────────────────────────── */
+.cd-header {
+  margin-bottom: 1.5rem;
+}
+
+.cd-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin: 0 0 0.375rem;
+}
+
+.cd-subtitle {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ── Profile Card ────────────────────────────────────────────── */
+.cd-profile-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.cd-profile-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+}
+
+.cd-profile-section-title svg {
+  color: #4f46e5;
+  flex-shrink: 0;
+}
+
+.cd-profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.cd-profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cd-profile-field--full {
+  grid-column: 1 / -1;
+}
+
+.cd-field-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cd-field-value {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.cd-field-value--mono {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Skeleton inside profile card ────────────────────────────── */
+.cd-profile-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Statistics Grid ─────────────────────────────────────────── */
+.cd-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Stat Card (page-scoped wrapper) ─────────────────────────── */
+/* Inherits .stat-card base from Dashboard.css.
+   .cd-stat-card adds only the page-level overrides. */
+.cd-stat-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.cd-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.cd-stat-card--skeleton {
+  pointer-events: none;
+}
+
+.cd-stat-card-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Orders Section ──────────────────────────────────────────── */
+.cd-orders-section {
+  margin-top: 0.25rem;
+}
+
+.cd-orders-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.cd-orders-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+}
+
+.cd-orders-count {
+  font-size: 0.8125rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
+/* ── Orders Table ────────────────────────────────────────────── */
+.cd-orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+.cd-orders-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #f8fafc;
+  padding: 0.875rem 1.25rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
+}
+
+.cd-orders-table tbody td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.9rem;
+  color: #374151;
+  vertical-align: middle;
+}
+
+.cd-orders-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.cd-orders-table tbody tr:hover td {
+  background-color: #f8fafc;
+  transition: background-color 150ms ease;
+}
+
+/* ── Table Cell Styles ───────────────────────────────────────── */
+.cd-invoice-number {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4f46e5;
+  font-variant-numeric: tabular-nums;
+}
+
+.cd-date-text {
+  font-size: 0.875rem;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.cd-items-count {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.cd-amount {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #16a34a;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Payment Status Badge ────────────────────────────────────── */
+.cd-payment-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.775rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cd-payment-badge--paid {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.cd-payment-badge--partial {
+  background-color: #fef9c3;
+  color: #a16207;
+}
+
+.cd-payment-badge--due {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+/* ── View Invoice Button ─────────────────────────────────────── */
+.cd-btn-invoice {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.85rem;
+  background: transparent;
+  color: #4f46e5;
+  border: 1px solid #c7d2fe;
+  border-radius: 9999px;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 250ms ease, transform 250ms ease;
+  outline: none;
+}
+
+.cd-btn-invoice:hover {
+  background-color: #ede9fe;
+  border-color: #4f46e5;
+  transform: scale(1.03);
+}
+
+.cd-btn-invoice:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+/* ── Responsive: Tablet ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .cd-page         { padding: 0 1.5rem; }
+  .cd-stats-grid   { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Responsive: Mobile ──────────────────────────────────────── */
+@media (max-width: 640px) {
+  .cd-page              { padding: 0 1rem; }
+  .cd-title             { font-size: 1.5rem; }
+  .cd-profile-grid      { grid-template-columns: 1fr; }
+  .cd-profile-field--full { grid-column: unset; }
+  .cd-stats-grid        { grid-template-columns: repeat(2, 1fr); gap: 0.875rem; }
+}
+
+@media (max-width: 420px) {
+  .cd-stats-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Reduced Motion ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .cd-back-btn,
+  .cd-stat-card,
+  .cd-btn-invoice { transition: none; transform: none !important; }
+}
