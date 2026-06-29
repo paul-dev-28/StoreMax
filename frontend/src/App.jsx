@@ -11,6 +11,7 @@ import Products from "./pages/Products";
 import Customers from "./pages/Customers";
 import CreateSale from "./pages/CreateSale";
 import CustomerDetail from "./pages/CustomerDetail";
+import InvoiceDetail from "./pages/InvoiceDetail";
 
 // Shared layout for all protected pages.
 // Eliminates the repeated <Navbar /> + wrapper pattern across every route.
@@ -46,6 +47,7 @@ function App() {
         <Route path="/customers"       element={<AppLayout><Customers /></AppLayout>} />
         <Route path="/customers/:id"   element={<AppLayout><CustomerDetail /></AppLayout>} />
         <Route path="/create-sale"     element={<AppLayout><CreateSale /></AppLayout>} />
+        <Route path="/invoices/:id"    element={<AppLayout><InvoiceDetail /></AppLayout>} />
 
         {/* Default: redirect root to dashboard */}
         <Route path="/" element={<Navigate to="/dashboard" replace />} />

@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const Sale = require("../models/Sale");
 const Product = require("../models/Product");
 const Customer = require("../models/Customer");
@@ -105,7 +106,47 @@ const getSales = async (req, res) => {
   }
 };
 
+// ── GET single sale by ID ─────────────────────────────────────
+// GET /api/sales/:id
+// Returns a fully populated sale document for the Invoice Details page.
+// owner check ensures a user can never read another user's invoice.
+const getSaleById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Reject malformed IDs before querying — prevents a Mongoose
+    // CastError from leaking as a confusing 500 response.
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({
+        message: "Invalid sale ID",
+      });
+    }
+
+    const sale = await Sale.findOne({
+      _id: id,
+      owner: req.user.id,
+    })
+      .populate("customer", "name phone address")
+      .populate("products.product", "name sellingPrice");
+
+    if (!sale) {
+      return res.status(404).json({
+        message: "Invoice not found",
+      });
+    }
+
+    res.status(200).json(sale);
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Server error",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   createSale,
   getSales,
+  getSaleById,
 };
