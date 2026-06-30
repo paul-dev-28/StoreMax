@@ -67,12 +67,21 @@ function TopCustomersCard({ topCustomers, loading, error, onRetry }) {
 
       {!loading && !error && hasData && (
         <div className="dash-chart-wrapper">
-          <ResponsiveContainer width="100%" height={Math.max(200, dataset.length * 42)}>
+            <ResponsiveContainer
+              width="100%"
+              height={300}
+            >
             <BarChart
               data={dataset}
               layout="vertical"
-              margin={{ top: 4, right: 24, left: 4, bottom: 4 }}
-            >
+              barCategoryGap="30%"
+              margin={{
+                top: 20,
+               right: 20,
+               left: 10,
+                bottom: 10,
+              }}
+              >
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
               <XAxis
                 type="number"
@@ -87,12 +96,12 @@ function TopCustomersCard({ topCustomers, loading, error, onRetry }) {
                 tick={{ fontSize: 12, fill: "#374151" }}
                 axisLine={false}
                 tickLine={false}
-                width={110}
+                width={120}
               />
               <Tooltip content={<ChartTooltip />} cursor={{ fill: "#f8fafc" }} />
               <Bar
                 dataKey="totalSpent"
-                fill="#4f46e5"
+                fill="#2563EB"
                 radius={[0, 6, 6, 0]}
                 maxBarSize={22}
                 animationDuration={500}

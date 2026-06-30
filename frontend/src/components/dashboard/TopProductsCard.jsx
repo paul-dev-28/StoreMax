@@ -16,7 +16,7 @@ const truncate = (str, max = 16) => (str.length > max ? `${str.slice(0, max)}…
 // only the dataKey/colour/formatter differ. Avoids duplicating the
 // chart JSX three times.
 const TAB_CONFIG = [
-  { key: "top",     label: "Top Selling",     dataKey: "unitsSold", color: "#4f46e5", unit: "units" },
+  { key: "top",     label: "Top Selling",     dataKey: "unitsSold", color: "#2563EB", unit: "units" },
   { key: "revenue", label: "Highest Revenue", dataKey: "revenue",   color: "#16a34a", unit: "₹"     },
   { key: "slow",    label: "Slow Moving",     dataKey: "unitsSold", color: "#f59e0b", unit: "units" },
 ];

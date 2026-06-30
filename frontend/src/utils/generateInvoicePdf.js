@@ -4,7 +4,7 @@ import autoTable from "jspdf-autotable";
 // ── Colour palette ────────────────────────────────────────────
 // Mirrors the StoreMax design tokens exactly.
 const C = {
-  indigo:  [79,  70,  229],  // #4F46E5 — primary brand
+  indigo:  [79,  70,  229],  // #2563EB — primary brand
   dark:    [15,  23,  42],   // #0F172A — primary text
   gray:    [100, 116, 139],  // #64748B — secondary text
   light:   [248, 250, 252],  // #F8FAFC — alternate row

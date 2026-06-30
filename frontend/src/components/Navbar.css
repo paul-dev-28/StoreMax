@@ -10,13 +10,13 @@
   --nav-px:              2.5rem;
 
   --brand-color:         #0f172a;
-  --brand-icon-color:    #4f46e5;
+  --brand-icon-color:    #2563EB;
 
   --link-color:          #4b5563;
-  --link-active-bg:      #4f46e5;
+  --link-active-bg:      #2563EB;
   --link-active-color:   #ffffff;
-  --link-hover-bg:       #ede9fe;
-  --link-hover-color:    #4f46e5;
+  --link-hover-bg:       #DBEAFE;
+  --link-hover-color:    #2563EB;
   --link-hover-shadow:   0 2px 8px rgba(79, 70, 229, 0.14);
 
   --logout-color:        #374151;

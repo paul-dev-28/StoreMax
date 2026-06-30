@@ -13,7 +13,7 @@ const formatCurrency = (amount) => `₹${Number(amount).toLocaleString("en-IN")}
 // only the dataKey/colour/seriesName differ. Avoids duplicating
 // the chart JSX twice for two structurally similar datasets.
 const TAB_CONFIG = [
-  { key: "inventory", label: "By Stock",   dataKey: "inventoryValue", color: "#4f46e5", seriesName: "Inventory Value" },
+  { key: "inventory", label: "By Stock",   dataKey: "inventoryValue", color: "#2563EB", seriesName: "Inventory Value" },
   { key: "revenue",   label: "By Revenue", dataKey: "revenue",        color: "#16a34a", seriesName: "Revenue"         },
 ];
 

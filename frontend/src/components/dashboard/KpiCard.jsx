@@ -61,7 +61,7 @@ export function KpiCard({ label, value, rawValue, Icon, iconVariant, warnIfPosit
     <div className={`stat-card${isDanger ? " stat-card--danger" : ""}`}>
       <div className="stat-card-top">
         <div className={`card-icon card-icon--${activeVariant}`}>
-          <Icon size={17} aria-hidden="true" />
+          <Icon size={20} aria-hidden="true" />
         </div>
       </div>
       <p className={`card-value${isDanger ? " card-value--danger" : ""}`}>
